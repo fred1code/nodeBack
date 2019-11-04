@@ -9,17 +9,18 @@ const bodyParser = require('body-parser');
 const router = require('./network/routes');
 
 var app = express();
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: false}));
+
+
 // parse application/json
 app.use(bodyParser.json());
-
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}));
 //app.use(router);
-
 router(app);
-
-
 app.use('/app', express.static('public'));
+
+
+
 
 
 app.listen(3000);
